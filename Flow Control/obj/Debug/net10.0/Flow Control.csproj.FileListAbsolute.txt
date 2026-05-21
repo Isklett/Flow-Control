@@ -1,0 +1,15 @@
+I:\Lexicon\C# Projects\Flow Control\Flow Control\bin\Debug\net10.0\Flow Control.exe
+I:\Lexicon\C# Projects\Flow Control\Flow Control\bin\Debug\net10.0\Flow Control.deps.json
+I:\Lexicon\C# Projects\Flow Control\Flow Control\bin\Debug\net10.0\Flow Control.runtimeconfig.json
+I:\Lexicon\C# Projects\Flow Control\Flow Control\bin\Debug\net10.0\Flow Control.dll
+I:\Lexicon\C# Projects\Flow Control\Flow Control\bin\Debug\net10.0\Flow Control.pdb
+I:\Lexicon\C# Projects\Flow Control\Flow Control\obj\Debug\net10.0\Flow Control.GeneratedMSBuildEditorConfig.editorconfig
+I:\Lexicon\C# Projects\Flow Control\Flow Control\obj\Debug\net10.0\Flow Control.AssemblyInfoInputs.cache
+I:\Lexicon\C# Projects\Flow Control\Flow Control\obj\Debug\net10.0\Flow Control.AssemblyInfo.cs
+I:\Lexicon\C# Projects\Flow Control\Flow Control\obj\Debug\net10.0\Flow Control.csproj.CoreCompileInputs.cache
+I:\Lexicon\C# Projects\Flow Control\Flow Control\obj\Debug\net10.0\Flow Control.sourcelink.json
+I:\Lexicon\C# Projects\Flow Control\Flow Control\obj\Debug\net10.0\Flow Control.dll
+I:\Lexicon\C# Projects\Flow Control\Flow Control\obj\Debug\net10.0\refint\Flow Control.dll
+I:\Lexicon\C# Projects\Flow Control\Flow Control\obj\Debug\net10.0\Flow Control.pdb
+I:\Lexicon\C# Projects\Flow Control\Flow Control\obj\Debug\net10.0\Flow Control.genruntimeconfig.cache
+I:\Lexicon\C# Projects\Flow Control\Flow Control\obj\Debug\net10.0\ref\Flow Control.dll

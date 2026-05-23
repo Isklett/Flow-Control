@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "I:\\Lexicon\\C# Projects\\Flow Control\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D5D07D8E-526A-065D-FF7E-A2BD9DC127A3}|Flow Control\\Flow Control.csproj|i:\\lexicon\\c# projects\\flow control\\flow control\\cinemamockdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5D07D8E-526A-065D-FF7E-A2BD9DC127A3}|Flow Control\\Flow Control.csproj|solutionrelative:flow control\\cinemamockdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D5D07D8E-526A-065D-FF7E-A2BD9DC127A3}|Flow Control\\Flow Control.csproj|i:\\lexicon\\c# projects\\flow control\\flow control\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D5D07D8E-526A-065D-FF7E-A2BD9DC127A3}|Flow Control\\Flow Control.csproj|solutionrelative:flow control\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5D07D8E-526A-065D-FF7E-A2BD9DC127A3}|Flow Control\\Flow Control.csproj|i:\\lexicon\\c# projects\\flow control\\flow control\\cinema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5D07D8E-526A-065D-FF7E-A2BD9DC127A3}|Flow Control\\Flow Control.csproj|solutionrelative:flow control\\cinema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "I:\\Lexicon\\C# Projects\\Flow Control\\Flow Control\\Program.cs",
               "RelativeDocumentMoniker": "Flow Control\\Program.cs",
               "ToolTip": "I:\\Lexicon\\C# Projects\\Flow Control\\Flow Control\\Program.cs",
               "RelativeToolTip": "Flow Control\\Program.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAIwF0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-21T12:37:18.377Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Cinema.cs",
+              "DocumentMoniker": "I:\\Lexicon\\C# Projects\\Flow Control\\Flow Control\\Cinema.cs",
+              "RelativeDocumentMoniker": "Flow Control\\Cinema.cs",
+              "ToolTip": "I:\\Lexicon\\C# Projects\\Flow Control\\Flow Control\\Cinema.cs",
+              "RelativeToolTip": "Flow Control\\Cinema.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAAGgBAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-22T07:07:02.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CinemaMockData.cs",
+              "DocumentMoniker": "I:\\Lexicon\\C# Projects\\Flow Control\\Flow Control\\CinemaMockData.cs",
+              "RelativeDocumentMoniker": "Flow Control\\CinemaMockData.cs",
+              "ToolTip": "I:\\Lexicon\\C# Projects\\Flow Control\\Flow Control\\CinemaMockData.cs",
+              "RelativeToolTip": "Flow Control\\CinemaMockData.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAowDYAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-22T11:51:38.378Z",
               "EditorCaption": ""
             }
           ]

@@ -1,6 +1,4 @@
 ﻿
-using static EntertainmentVenue.Cinema.Cinema.Saloon;
-
 namespace EntertainmentVenue.Cinema
 {
     public class Cinema
@@ -77,6 +75,26 @@ namespace EntertainmentVenue.Cinema
             public int Columns { get; init; }
             public int Capacity { get; init; }
 
+            public Seat[,] Seats { get; init; }
+
+            private Movie[] _movies;
+            public Movie[] Movies
+            {
+                get
+                {
+                    return _movies;
+                }
+                set
+                {
+                    if (value == null || value.Length == 0)
+                    {
+                        _movies = new Movie[0];
+                        return;
+                    }
+                    _movies = value;
+                }
+            }
+
             private Schedule _schedule;
             public Schedule Schedule
             {
@@ -94,34 +112,59 @@ namespace EntertainmentVenue.Cinema
                 }
             }
 
-            public Saloon(string name, int rows, int columns, Schedule schedule)
+            public Saloon(string name, int rows, int columns, Movie[] movies, Schedule schedule)
             {
                 _name = name;
                 Rows = rows;
                 Columns = columns;
                 Capacity = rows * columns;
+                _movies = movies;
                 _schedule = schedule;
-                foreach (var screening in schedule.Screenings)
-                {
-                    screening.Saloon = this;
-                }
+                Seats = new Seat[rows, columns];
             }
-        }
 
-        private string _name = string.Empty;
-        public string Name
-        {
-            get
+            public bool OccupySeat(int row, int column)
             {
-                return _name;
-            }
-            set
-            {
-                if (string.IsNullOrWhiteSpace(value))
+                if (row < 0 || row >= Rows || column < 0 || column >= Columns)
                 {
-                    throw new ArgumentException("Cinema name cannot be null or empty.");
+                    throw new ArgumentOutOfRangeException("Row and column must be within the bounds of the saloon.");
                 }
-                _name = value;
+                if (Seats[row, column].IsOccupied)
+                {
+                    Console.WriteLine($"Seat at row {row} and column {column} is already occupied.");
+                    return false;
+                }
+                else
+                {
+                    Seats[row, column].IsOccupied = true;
+                    Console.WriteLine($"Seat at row {row} and column {column} is now occupied.");
+                    return true;
+                }
+            }
+
+            public void DisplaySeatingArrangement()
+            {
+                Console.WriteLine($"Seating arrangement for {Name}:");
+                for (int i = 0; i < Rows; i++)
+                {
+                    if(i == 0)
+                    {
+                        Console.Write($"R->{i} ");
+                    }
+                    else
+                    {
+                        Console.Write($"{i} ");
+                    }
+                    for (int j = 0; j < Columns; j++)
+                    {
+                        if(i == 0)
+                        {
+                            Console.Write($"C->{j} ");
+                        }
+                        Console.Write(Seats[i, j].IsOccupied ? "X " : "O ");
+                    }
+                    Console.WriteLine();
+                }
             }
         }
 
@@ -142,9 +185,8 @@ namespace EntertainmentVenue.Cinema
             }
         }
 
-        public Cinema(string name, Saloon[] saloons)
+        public Cinema(Saloon[] saloons)
         {
-            Name = name;
             _saloons = saloons;
         }
 
@@ -153,111 +195,22 @@ namespace EntertainmentVenue.Cinema
             public Movie Movie { get; init; }
             public DateTime StartTime { get; init; }
             public DateTime EndTime { get; init; }
-            private Seat[,]? _seats;
-            public Seat[,] Seats 
-            { 
-                get => _seats ?? throw new InvalidOperationException("Seats has not been assigned to this saloon");
-                set
-                {
-                    if (value == null)
-                    {
-                        throw new ArgumentException("Seats array cannot be null.");
-                    }
-                    _seats = value;
-                }
-            }
-            private Saloon? _saloon;
-            public Saloon Saloon
-            {
-                get => _saloon ?? throw new InvalidOperationException("Saloon has not been assigned to this screening.");
-                set
-                {
-                    _saloon = value ?? throw new ArgumentNullException(nameof(value));
-                    Seats = new Seat[_saloon.Rows, _saloon.Columns];
-                }
-            }
             public Screening(Movie movie, DateTime showTime)
             {
                 Movie = movie;
                 StartTime = showTime;
                 EndTime = showTime.Add(movie.Duration);
             }
-
-            /// <summary>
-            /// Checks if selected seat is free and if it is, occupies it.
-            /// </summary>
-            /// <param name="row"></param>
-            /// <param name="column"></param>
-            /// <returns></returns>
-            /// <exception cref="ArgumentOutOfRangeException"></exception>
-            public bool OccupySeat(uint row, uint column)
-            {
-                if (row < 0 || row >= Saloon.Rows || column < 0 || column >= Saloon.Columns)
-                {
-                    throw new ArgumentOutOfRangeException("Row and column must be within the bounds of the saloon.");
-                }
-                if (Seats[row, column].IsOccupied)
-                {
-                    return false;
-                }
-                else
-                {
-                    Seats[row, column].IsOccupied = true;
-                    return true;
-                }
-            }
-
-            /// <summary>
-            /// ASCII art displaying seatmap of the saloon. X = occupied, O = free.
-            /// </summary>
-            public void DisplaySeatingArrangement()
-            {
-                Console.WriteLine($"Seating arrangement for {Saloon.Name}:");
-                for (int i = 0; i < Saloon.Rows + 1; i++)
-                {
-                    for (int j = 0; j < Saloon.Columns + 1; j++)
-                    {
-                        if (i == 0)
-                        {
-                            Console.Write($"{j} ");
-                        }
-                        else if (j == 0)
-                        {
-                            Console.Write($"{i} ");
-                        }
-                        else
-                        {
-                            Console.Write(Seats[i - 1, j - 1].IsOccupied ? "X " : "O ");
-                        }
-                    }
-                    Console.WriteLine();
-                }
-            }
         }
 
         public class Schedule
         {
             public Screening[] Screenings { get; }
-            public List<Movie> Movies { get; }
             public Schedule(Screening[] screenings)
             {
                 Screenings = screenings;
-                Movies = new List<Movie>();
-                foreach (var screening in screenings)
-                {
-                    if (!Movies.Contains(screening.Movie))
-                    {
-                        Movies.Add(screening.Movie);
-                    }
-                }
             }
 
-            /// <summary>
-            /// Checks if the movie can be scheduled at the specified start time without overlapping with existing screenings. If it can be scheduled, it adds the new screening to the schedule.
-            /// </summary>
-            /// <param name="movie"></param>
-            /// <param name="startTime"></param>
-            /// <returns></returns>
             public bool ScheduleMovie(Movie movie, DateTime startTime)
             {
                 foreach (var screening in Screenings)
@@ -278,51 +231,10 @@ namespace EntertainmentVenue.Cinema
             }
         }
 
-
-        /// <summary>
-        /// Return all movies that are being shown in any of the saloons (no duplicates, matched by title)
-        /// </summary>
-        /// <returns></returns>
-        public Movie[] GetMovies()
+        public Movie[] GetMovies(Cinema cinema)
         {
-            return Saloons.SelectMany(saloon => saloon.Schedule.Movies).Distinct().ToArray();
+            return cinema.Saloons.SelectMany(saloon => saloon.Movies).Distinct().ToArray();
         }
-
-        /// <summary>
-        /// Return all saloons that are showing the specified movie (matched by title)
-        /// </summary>
-        /// <param name="movie"></param>
-        /// <returns></returns>
-        public Saloon[] GetSaloonsShowingMovie(Movie movie)
-        {
-            if (Saloons == null || Saloons.Length == 0)
-            {
-                return Array.Empty<Saloon>();
-            }
-
-            return Saloons
-                .Where(s => s.Schedule.Movies != null && s.Schedule.Movies.Any(m => string.Equals(m.Title, movie.Title, StringComparison.OrdinalIgnoreCase)))
-                .ToArray();
-        }
-
-        /// <summary>
-        /// Return all screenings for the specified movie in the specified saloon
-        /// </summary>
-        /// <param name="movie"></param>
-        /// <param name="saloon"></param>
-        /// <returns></returns>
-        public Screening[] GetScreeningsForMovieInSaloon(Movie movie, Saloon saloon)
-        {
-            if (saloon == null || saloon.Schedule == null || saloon.Schedule.Screenings == null)
-            {
-                return Array.Empty<Screening>();
-            }
-
-            return saloon.Schedule.Screenings
-                .Where(sc => string.Equals(sc.Movie.Title, movie.Title, StringComparison.OrdinalIgnoreCase))
-                .ToArray();
-        }
-
 
         public static string GetCategoryAsString(PriceCategory category)
         {
@@ -352,12 +264,6 @@ namespace EntertainmentVenue.Cinema
             }
         }
 
-        /// <summary>
-        /// Returns the price depending on price category
-        /// </summary>
-        /// <param name="category"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static decimal GetPrice(PriceCategory category)
         {
             switch (category)

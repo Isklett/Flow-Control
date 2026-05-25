@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "Flow Control\\Program.cs",
               "ToolTip": "I:\\Lexicon\\C# Projects\\Flow Control\\Flow Control\\Program.cs",
               "RelativeToolTip": "Flow Control\\Program.cs",
-              "ViewState": "AgIAAL8AAAAAAAAAAAAAAM8AAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-21T12:37:18.377Z",
               "EditorCaption": ""
@@ -45,10 +45,9 @@
               "RelativeDocumentMoniker": "Flow Control\\Cinema.cs",
               "ToolTip": "I:\\Lexicon\\C# Projects\\Flow Control\\Flow Control\\Cinema.cs",
               "RelativeToolTip": "Flow Control\\Cinema.cs",
-              "ViewState": "AgIAAE0BAAAAAAAAAAAawGEBAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwGEBAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T07:07:02.108Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-22T07:07:02.108Z"
             },
             {
               "$type": "Document",
@@ -60,8 +59,7 @@
               "RelativeToolTip": "Flow Control\\CinemaMockData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T11:51:38.378Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-22T11:51:38.378Z"
             }
           ]
         }

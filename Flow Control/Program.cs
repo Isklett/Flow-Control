@@ -109,7 +109,7 @@ namespace Flow_Control
                     {
                         if (userFeedback)
                         {
-                            Console.WriteLine($"Age {age} is eligible for the youth price: {Cinema.GetPrice(Cinema.PriceCategory.Youth)}.");
+                            Console.WriteLine($"Age {age} is eligible for the youth price: {Cinema.GetPrice(Cinema.PriceCategory.Youth)} kr.");
                         }
                         return Cinema.PriceCategory.Youth;
                     }
@@ -117,7 +117,7 @@ namespace Flow_Control
                     {
                         if (userFeedback)
                         {
-                            Console.WriteLine($"Age {age} is eligible for the senior price: {Cinema.GetPrice(Cinema.PriceCategory.Senior)}.");
+                            Console.WriteLine($"Age {age} is eligible for the senior price: {Cinema.GetPrice(Cinema.PriceCategory.Senior)} kr.");
                         }
                         return Cinema.PriceCategory.Senior;
                     }
@@ -133,7 +133,7 @@ namespace Flow_Control
                     {
                         if (userFeedback)
                         {
-                            Console.WriteLine($"Age {age} is eligible for the adult price: {Cinema.GetPrice(Cinema.PriceCategory.Adult)}.");
+                            Console.WriteLine($"Age {age} is eligible for the adult price: {Cinema.GetPrice(Cinema.PriceCategory.Adult)} kr.");
                         }
                         return Cinema.PriceCategory.Adult;
                     }
@@ -167,7 +167,7 @@ namespace Flow_Control
                     decimal ticketPrice = tickets[i].Price;
                     Console.WriteLine($"Ticket of category {Cinema.GetCategoryAsString(priceCategory)} has been added.");
                 }
-                Console.WriteLine($"The total price for {tickets.Length} tickets is: {Cinema.Ticket.TotalTicketPrice(tickets)}.");
+                Console.WriteLine($"The total price for {tickets.Length} tickets is: {Cinema.Ticket.TotalTicketPrice(tickets)} kr.");
             }
             else
             {

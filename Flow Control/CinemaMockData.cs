@@ -1,7 +1,7 @@
 ﻿
 namespace EntertainmentVenue.Cinema
 {
-    public class CinemaMockData
+    internal static class CinemaMockData
     {
         public static Cinema.Movie[] GetAllAvailableMovies()
         {

@@ -1,9 +1,6 @@
-﻿
-using static EntertainmentVenue.Cinema.Cinema.Saloon;
-
-namespace EntertainmentVenue.Cinema
+﻿namespace EntertainmentVenue.Cinema
 {
-    public class Cinema
+    internal class Cinema
     {
         public enum PriceCategory
         {
@@ -59,17 +56,16 @@ namespace EntertainmentVenue.Cinema
             }
 
 
-            private string _name { get; set; }
             public string Name
             {
-                get { return _name; }
+                get { return field; }
                 set
                 {
                     if (string.IsNullOrWhiteSpace(value))
                     {
                         throw new ArgumentException("Saloon name cannot be null or empty.");
                     }
-                    _name = value;
+                    field = value;
                 }
             }
 
@@ -77,12 +73,11 @@ namespace EntertainmentVenue.Cinema
             public int Columns { get; init; }
             public int Capacity { get; init; }
 
-            private Schedule _schedule;
             public Schedule Schedule
             {
                 get
                 {
-                    return _schedule;
+                    return field;
                 }
                 set
                 {
@@ -90,17 +85,17 @@ namespace EntertainmentVenue.Cinema
                     {
                         throw new ArgumentException("Schedule cannot be null.");
                     }
-                    _schedule = value;
+                    field = value;
                 }
             }
 
             public Saloon(string name, int rows, int columns, Schedule schedule)
             {
-                _name = name;
+                Name = name;
                 Rows = rows;
                 Columns = columns;
                 Capacity = rows * columns;
-                _schedule = schedule;
+                Schedule = schedule;
                 foreach (var screening in schedule.Screenings)
                 {
                     screening.Saloon = this;
@@ -108,12 +103,11 @@ namespace EntertainmentVenue.Cinema
             }
         }
 
-        private string _name = string.Empty;
         public string Name
         {
             get
             {
-                return _name;
+                return field;
             }
             set
             {
@@ -121,16 +115,15 @@ namespace EntertainmentVenue.Cinema
                 {
                     throw new ArgumentException("Cinema name cannot be null or empty.");
                 }
-                _name = value;
+                field = value;
             }
         }
 
-        private Saloon[] _saloons;
         public Saloon[] Saloons
         {
             get
             {
-                return _saloons;
+                return field;
             }
             set
             {
@@ -138,14 +131,14 @@ namespace EntertainmentVenue.Cinema
                 {
                     throw new ArgumentException("Saloons array cannot be null or empty.");
                 }
-                _saloons = value;
+                field = value;
             }
         }
 
         public Cinema(string name, Saloon[] saloons)
         {
             Name = name;
-            _saloons = saloons;
+            Saloons = saloons;
         }
 
         public class Screening
@@ -153,8 +146,8 @@ namespace EntertainmentVenue.Cinema
             public Movie Movie { get; init; }
             public DateTime StartTime { get; init; }
             public DateTime EndTime { get; init; }
-            private Seat[,]? _seats;
-            public Seat[,] Seats 
+            private Saloon.Seat[,]? _seats;
+            public Saloon.Seat[,] Seats 
             { 
                 get => _seats ?? throw new InvalidOperationException("Seats has not been assigned to this saloon");
                 set
@@ -173,7 +166,7 @@ namespace EntertainmentVenue.Cinema
                 set
                 {
                     _saloon = value ?? throw new ArgumentNullException(nameof(value));
-                    Seats = new Seat[_saloon.Rows, _saloon.Columns];
+                    Seats = new Saloon.Seat[_saloon.Rows, _saloon.Columns];
                 }
             }
             public Screening(Movie movie, DateTime showTime)

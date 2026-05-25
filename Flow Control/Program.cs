@@ -1,5 +1,4 @@
 ﻿using EntertainmentVenue.Cinema;
-using System.Security;
 
 namespace Flow_Control
 {
@@ -91,7 +90,7 @@ namespace Flow_Control
             if (string.IsNullOrWhiteSpace(input))
             {
                 Console.WriteLine("Invalid input, please enter a valid age.");
-                AgeCheck();
+                AgeCheck(userFeedback);
             }
             else
             {
@@ -104,6 +103,7 @@ namespace Flow_Control
                         {
                             Console.WriteLine($"Age {age} is eligible to watch the movie for free if accompanied by an adult.");
                         }
+                        return Cinema.PriceCategory.Child;
                     }
                     else if (age >= 5 && age < 20)
                     {
@@ -204,7 +204,7 @@ namespace Flow_Control
         private static void LocateThirdWord()
         {
             Console.Write("\nPlease enter a sentence with at least three words: ");
-            string input = Console.ReadLine() ?? "";
+            var input = Console.ReadLine() ?? "";
             if (!string.IsNullOrWhiteSpace(input))
             {
                 string[] words = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
@@ -225,6 +225,10 @@ namespace Flow_Control
             }
         }
 
+
+        /// <summary>
+        /// Initiates the booking system
+        /// </summary>
         private static void BookingSystem()
         {
             Cinema selectedCinema = _cinemas[0];
@@ -391,6 +395,7 @@ namespace Flow_Control
                 }
             }
 
+            //Returns to previous page
             void Back()
             {
                 switch(currentPage)

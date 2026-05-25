@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Flow Control")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95baba25360ef49a77fb7d596a5306f94d3a5d53")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+923508cf119f4359578f5464bec8c88e729eaa90")]
 [assembly: System.Reflection.AssemblyProductAttribute("Flow Control")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Flow Control")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
